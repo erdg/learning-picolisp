@@ -2,17 +2,18 @@
 
 This little nugget will go through the basics of using Vim within PicoLisp. 
 
-#### topics
+## topics
 - using 'vi' and 'ld'
 - using 'edit'
 
 
-#### Using 'vi' and 'ld'
+### Using 'vi' and 'ld'
 at our command line,
 ```bash
 $ echo "(de foo ())" > foo.l
 ```
 This command put a function prototype in the file `foo.l`.
+
 
 Now fire up PicoLisp in Debug Mode with that file loaded,
 ```bash
@@ -44,8 +45,8 @@ Let's change `foo` so that it prints a cute little ASCII mouse. In command mode,
    (println "o o")
    (println ">v<") )
 ```
-
 Satified with our new definition of `foo`, we exit insert mode and type `ZZ` in command mode, to save our changes and return to PicoLisp.
+
 
 Back at the REPL now, we need to reload `foo` so we can play with the new version of it.
 ```lisp
@@ -55,11 +56,13 @@ Back at the REPL now, we need to reload `foo` so we can play with the new versio
 :
 ```
 
+
 What happened there? As always, when you're not sure what a new function does...
 ```lisp
 : (doc 'ld)
 ``` 
 Ah, gotcha.
+
 
 Sweet! Now let's test it out.
 ```lisp
@@ -69,6 +72,7 @@ Sweet! Now let's test it out.
 ">v<"
 -> ">v<"
 ```
+
 
 That's pretty cool, but I don't like all the `"`'s in the output. Let's change that.
 ```lisp
@@ -85,6 +89,7 @@ Our lastest `foo` should now be
    (prinl ">v<") )
 ```
 
+
 Exit Vim with `ZZ` and `ld` the file.
 ```lisp
 : (ld)
@@ -93,6 +98,7 @@ Exit Vim with `ZZ` and `ld` the file.
 :
 ```
 Remember the difference between `println` and `prinl`? If not, now would be the time to `(doc 'println)` and `(doc 'prinl)`.
+
 
 Try it out!
 ```lisp
@@ -104,11 +110,13 @@ o o
 ```
 Neato!
 
+
 But I'm still not sold on the function's return value. A bit offputting to see an additional nose/whisker combo just floating there in mid air. Foo! Ideally `foo` would simply return `T` to let us know that a cute little ASCII mouse has been printed. Luckily, there's a function for that!
 ```lisp
 : (doc 't)
 ```
 The example is the same use case as ours! This is gonna be perfect.
+
 
 Back to the `foo`...ture.  
 ```lisp
@@ -123,7 +131,8 @@ Change `foo` to look like this,
       (prinl "o o")
       (prinl ">v<") ) )
 ```
-In command mode, save and quit again with `ZZ`. 
+In command mode, save and quit with `ZZ`. 
+
 
 `ld` the file and try it out again.
 ```lisp
