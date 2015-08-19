@@ -56,3 +56,12 @@ Blam!
 -> (1 2 3 4)
 ```
 KAAPPOOOWWWWW!!!!!
+
+
+Heh. See what we did there? We just used our ignorance of 'make' to fuel a little list building session. Make that shit! And you better have typed in all those examples. You're cheating if you didn't. And you better have already called 'doc' on any of those functions that you need to review... ahem... `(doc 'any)` and `(doc 'chop)` at least.
+
+Back to 'make'. Surely there must be a reason to have yet *another* function for building lists. Well, it is lisp.
+
+> **HINT:** The people who build programming languages know more about programming than we do. If there is a feature of the language that seems weird or redundant or silly or dumb, you're probably misusing it and don't fully understand the problem that it solves. So do everyone a favor; play around with said feature, and get yourself edumacated! 
+
+
