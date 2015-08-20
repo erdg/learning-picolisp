@@ -174,4 +174,4 @@ o O
 -> T
 ```
 
-Are you feeling the flow? Simply call `vi` and re`ld`! 
+Are you feeling the flow? Simply call `vi` and then `ld`! 
