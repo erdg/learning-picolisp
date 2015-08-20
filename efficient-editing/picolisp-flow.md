@@ -147,4 +147,31 @@ o o
 :
 ```
 
+Our little mouse friend is getting suspicious of all the editing...
+```lisp
+: (vi 'foo)
+```
 
+Let's change him one last time.
+```lisp
+(de foo ()
+   (t (prinl "A A")
+      (prinl "_ /")
+      (prinl "o O")
+      (prinl ">v<") ) )
+```
+
+Save and quit, reload and fire away.
+```lisp
+: (ld)
+# foo redefined
+-> foo
+: (foo)
+A A
+_ /
+o O
+>v<
+-> T
+```
+
+Are you feeling the flow? Simply call `vi` and re`ld`! 
