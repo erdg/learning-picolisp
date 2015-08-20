@@ -1,6 +1,6 @@
 # Make that Shit
 
-In this tutorial, we'll go over the builtin PicoLisp function *make* and hopefully do some cool things along the way. But let's be real, this is a tutorial for peeps that don't know sheet about 'make'. I am one of those people at the moment of writing this, so we probably won't be doing anything super exciting. But I'll at least try to keep the examples silly!
+In this tutorial, we'll go over the builtin PicoLisp function `make` and hopefully do some cool things along the way. But let's be real, this is a tutorial for peeps that don't know sheet about `make`. I am one of those people at the moment of writing this, so we probably won't be doing anything super exciting. But I'll at least try to keep the examples silly!
 
 As always,
 ```lisp
@@ -58,7 +58,7 @@ Blam!
 KAAPPOOOWWWWW!!!!!
 
 
-Heh. See what we did there? We just used our ignorance of 'make' to fuel a little list building session. Make that shit! And you better have typed in all those examples. You're cheating if you didn't. And you better have already called 'doc' on any of those functions that you need to review... ahem... `(doc 'any)` and `(doc 'chop)` at least.
+Heh. See what we did there? We just used our ignorance of `make` to fuel a little list building session. Make that shit! And you better have typed in all those examples. You're cheating if you didn't. And you better have already called 'doc' on any of those functions that you need to review... ahem... `(doc 'any)` and `(doc 'chop)` at least.
 
 Back to 'make'. Surely there must be a reason to have yet *another* function for building lists. Well, it is lisp.
 
@@ -91,11 +91,16 @@ It just sticks them all in there, one right after the other. Better practice tha
 -> (blue things)
 ```
 
-We know that we're building lists... then we're linking different things together... but then what? What exactly is happening, especially in the first call to `link` in each of the preceeding examples? Well, the beauty of the `make` is that we can build lists that are the result of arbitrary lisp-isms. *WUT?* That means we can call any function we want to get the desired list! Check it. In the example that returned `(red thing)`, we wanted to find the word 'red' from a list of colors. We did that with another PicoLisp function that you should know, `find`
+We know that we're building lists... then we're linking different things together... but then what? What exactly is happening, especially in the first call to `link` in each of the preceeding examples? Well, the beauty of the `make` is that we can build lists that are the result of arbitrary lisp-isms. *WUT?* That means we can call any function we want to get the desired list! Check it. In the example that returned `(red thing)`, we wanted to find the word 'red' from a list of colors. We did that with another PicoLisp function that you should know, `find`.
 
 ```lisp
 : (doc 'find)
 ```
 The wording there is a bit confusing. `find` looks at each item in the list, one after the other, to see if it passes a test. It then returns the first item that passes the test. In our case, the test was, *Is this item the word 'red'?* Once it found the word 'red', `find` was all like, "Hey I got it! It's 'red'. Here you go!" And all of that was wrapped in a `link`, so we stuck it at the beginning of the list. And then we linked the word 'thing' to that list.
 
-Similarly, in the example that returned `(blue thing)`, we wanted to find the first item that wasn't a number. We found blue, and then `link`ed 'thing' to it. 
+Similarly, in the example that returned `(blue thing)`, we wanted to find the first item that wasn't a number. We found 'blue', and then `link`ed 'thing' to it. 
+
+
+### todo
+- more examples with `link`
+- examples and explanations for `chain`, `yoke`, and `made`.
