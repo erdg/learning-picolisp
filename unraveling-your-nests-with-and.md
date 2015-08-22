@@ -112,5 +112,5 @@ Within `and` the symbol `@` will refer to the result of your last expression. Th
 
 I'm not even going to try to re-nest that!
 
-Let's use this to clean up some code found in the wild. Here's a function I wrote the other day,
-
+### todo
+add examples of cleaning up code found in the wild. 
