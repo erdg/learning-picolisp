@@ -115,5 +115,81 @@ Within `and` the symbol `@` will refer to the result of your last expression. Th
 
 I'm not even going to try to re-nest that!
 
-### todo
-add examples of cleaning up code found in the wild. 
+### In the Wild
+The other day I was working on some PicoLisp code to generate Lilypond code to generate sheet music for me. I had a function, `pack-durations` that looked something like this,
+```lisp
+[de pack-durations (Music)
+   (let Durs (map@ Music (get-duration @))
+      (mapc
+         '((Obj)
+            (or 
+               (and (pair Obj) (eval @))
+               (prin Obj " ") ) )
+         (mapcar any
+            (mapcar 
+               '((X) (if (pre? "r" X) (pack X) (pack "b" X)))
+               Durs ]
+```
+
+It's not too hairy, but it certainly isn't immediately obvious what this function does. I'll explain briefly, though it isn't terribly important. It expects a list of Lilypond chord symbols, e.g. `(aes4.:min7 b8:maj9 r c:min11 r des:maj7)`. Then it extracts the durations from those symbols, the `4.` and `8`, and finally does a bunch of nested mapping to achieve the desired result. Let's see if we can't rewrite it using our `and` technique to make the code more readable.
+
+To do so, we have to turn it inside out; that is, we start with whatever is buried at the bottom of our nested mess. In our case it's,
+```lisp
+(mapcar
+   '((X) (if (pre? "r" X) (pack X) (pack "b" X)))
+   Durs )
+```
+So this is what we'll start off our call to and with.
+```lisp
+(and
+   (mapcar
+      '((X) (if (pre? "r" X) (pack X) (pack "b" X)))
+      Durs )
+```
+Remember that the result of that expression will be held in the symbol `@`. Moving one level of nesting outward, we come to
+```lisp
+(mapcar any
+   ... )
+```
+We've got to `mapcar` `any` over the result (stored in `@`) of the previous expression. Adding that to our `and` sequence, we get
+```lisp
+(and
+   (mapcar 
+      '((X) (if (pre? "r" X) (pack X) (pack "b" X)))
+      Durs )
+   (mapcar any @)
+```
+Finally, we reach our last level of nested mapping: the call to `mapc`. Let's add that to our `and` sequence.
+```lisp
+(and
+   (mapcar 
+      '((X) (if (pre? "r" X) (pack X) (pack "b" X)))
+      Durs )
+   (mapcar any @)
+   (mapc
+      '((Obj)
+         (or
+            (and (pair Obj) (eval @))
+            (prin Obj " ") ) )
+      @ ) )
+```
+
+Yay! With that, the whole function becomes,
+```lisp
+[de pack-durations (Music)
+   (let Durs (map@ Music (get-duration @))
+      (and
+         (mapcar 
+            '((X) (if (pre? "r" X) (pack X) (pack "b" X)))
+            Durs )
+         (mapcar any @)
+         (mapc
+            '((Obj)
+              (or
+                  (and (pair Obj) (eval @))
+                  (prin Obj " ") ) )
+            @ ] 
+```
+
+I think this is more readable, but your results may vary. I like that each stage is laid out a little more explicitly. We see what happens, and then we see what we're doing with the result in the next part. And if you look closely, you'll notice that there are even nested `and`s and `@`s in there! You'll see an overwhelming amount of `@`s when you first start digging into PicoLisp code. Once you get used to the idioms, however, the code becomes both shorter and more readable. And when in doubt, check [this](http://picolisp.com/wiki/?AtMark) out! 
+
