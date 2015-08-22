@@ -54,7 +54,7 @@ Wait a second!! `->` redefined? PicoLisp already has `->`?
 
 > These aren't the functions you're looking for.
 
-> Ben Kenobi
+> -- Ben Kenobi
 
 That's fine, We've got the real `->` now!
 ```lisp
