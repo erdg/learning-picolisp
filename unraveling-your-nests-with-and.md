@@ -139,19 +139,19 @@ To do so, we have to turn it inside out; that is, we start with whatever is buri
    '((X) (if (pre? "r" X) (pack X) (pack "b" X)))
    Durs )
 ```
-So this is what we'll start off our call to and with.
+So this is what we'll start off our call to `and` with.
 ```lisp
 (and
    (mapcar
       '((X) (if (pre? "r" X) (pack X) (pack "b" X)))
       Durs )
 ```
-Remember that the result of that expression will be held in the symbol `@`. Moving one level of nesting outward, we come to
+Remember that the result of that expression will be held in the symbol `@`. Moving one level of nesting outward we find,
 ```lisp
 (mapcar any
    ... )
 ```
-We've got to `mapcar` `any` over the result (stored in `@`) of the previous expression. Adding that to our `and` sequence, we get
+We've got to `mapcar` `any` over the result (stored in `@`) of the previous expression. Adding that to our `and` sequence we get,
 ```lisp
 (and
    (mapcar 
@@ -185,11 +185,11 @@ Yay! With that, the whole function becomes,
          (mapcar any @)
          (mapc
             '((Obj)
-              (or
+               (or
                   (and (pair Obj) (eval @))
                   (prin Obj " ") ) )
             @ ] 
 ```
 
-I think this is more readable, but your results may vary. I like that each stage is laid out a little more explicitly. We see what happens, and then we see what we're doing with the result in the next part. And if you look closely, you'll notice that there are even nested `and`s and `@`s in there! You'll see an overwhelming amount of `@`s when you first start digging into PicoLisp code. Once you get used to the idioms, however, the code becomes both shorter and more readable. And when in doubt, check [this](http://picolisp.com/wiki/?AtMark) out! 
+I think this is more readable, but your results may vary. I like that each stage is laid out a little more explicitly. We see what happens, and then we see what we're doing with the result in the next part. And if you look closely, you'll notice that there are even nested `and`'s and `@`'s in there! You'll see an overwhelming amount of `@`s when you first start digging into PicoLisp code. Once you get used to the idioms, however, the code becomes both shorter and more readable. And when in doubt, check [this](http://picolisp.com/wiki/?AtMark) out! 
 
