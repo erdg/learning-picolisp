@@ -38,7 +38,7 @@ Every now and again I find myself writing code that looks something like this,
 
 Maybe I do... *maybe I do.* Alright. LET'S DO THIS!!!
 ```lisp
-: (de -> ("X" . "A")
+: (de -> ("X" . "A")  # courtesy of Mike Pechkin
      (for "Form" "A"
         (setq "X" (apply (car "Form") (cdr "Form") "X")) ) )
 # -> redefined
@@ -56,7 +56,7 @@ Wait a second!! `->` redefined? PicoLisp already has `->`?
 
 > -- Ben Kenobi
 
-That's fine, We've got the real `->` now!
+These aren't the functions we're looking for. That's fine, We've got the *real* `->` now!
 ```lisp
 : (-> 13 (+ 2) (+ 3) (/ 3))
 -> 6
@@ -64,7 +64,7 @@ That's fine, We've got the real `->` now!
 
 But if we're really gonna unravel all those nefarious levels of nesting, we're gonna need `->>` as well...
 ```lisp
-:   # defines the '->>' operator ;)
+:   # defines the '->>' operator... 
 ```
 
 And all our problems with nastily nested nesting vanish. Until we stay up too late programming again and return in the morning to find that someone hacked us and replaced our beautiful code with some sort of archaic treasure map.
