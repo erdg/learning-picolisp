@@ -67,7 +67,7 @@ But if we're really gonna unravel all those nefarious levels of nesting, we're g
 :   # defines the '->>' operator... 
 ```
 
-And all our problems with nastily nested nesting vanish. Until we stay up too late programming again and return in the morning to find that someone hacked us and replaced our beautiful code with some sort of archaic treasure map.
+And all our problems with nastily nested nesting vanish... until we stay up too late programming again and return in the morning to find that someone hacked us and replaced our beautiful code with some sort of archaic treasure map.
 ```lisp
 (-> X marks the spot
   (->> |
@@ -76,8 +76,8 @@ And all our problems with nastily nested nesting vanish. Until we stay up too la
  | | <--  . quicksand ..
  |        ..............
  \_____ X --<<>>~> Y
-            ~~~~   |
-            ~~~~   \---> X
+            ~~~~o  |
+            o~~~~  \---> X
   look out for snakes!   |             
              /-  X <<----/
              |
