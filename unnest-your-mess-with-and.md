@@ -1,4 +1,4 @@
-# Unraveling your Nests with 'and'
+# Unnest your mess with 'and'
 
 Every now and again I find myself writing code that looks something like this,
 ```lisp
