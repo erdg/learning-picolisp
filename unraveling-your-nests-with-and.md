@@ -32,9 +32,9 @@ Every now and again I find myself writing code that looks something like this,
 
 *Siiiiigggghhhhhhhh*. Should have gone to bed.
 
-> Bro, you just need the `->`, `->>`, `-<>-||->>>>` operators.
+> You just need the `->`, `->>` and `-<>-||->>>>` operators.
 
-> -- Every Clojure programmer ever
+> -- Every Clojure enthusiast ever
 
 Maybe I do... *maybe I do.* Alright. LET'S DO THIS!!!
 ```lisp
