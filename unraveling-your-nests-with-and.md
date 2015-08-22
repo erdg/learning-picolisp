@@ -1,4 +1,4 @@
-# Unraveling your Nests with `and`
+# Unraveling your Nests with 'and'
 
 Every now and again I find myself writing code that looks something like this,
 ```lisp
@@ -33,7 +33,7 @@ Every now and again I find myself writing code that looks something like this,
 *Siiiiigggghhhhhhhh*. Should have gone to bed.
 
 > Bro, you just need the `->`, `->>`, `-<>-||->>>>` operators.
-> - Every Clojure programmer ever
+> -- Every Clojure programmer ever
 
 Maybe I do... *maybe I do.* Alright. LET'S DO THIS!!!
 ```lisp
@@ -95,7 +95,7 @@ That's right. PicoLisp's flow- and logic-functions hang on to the values of thei
 I read this code as saying, "Take 13, add two to it, then add three to it and finally divide it by 3."
 
 > Who gives a fuck about an Oxford comma?
-> - Ezra Koenig
+> -- Ezra Koenig
 
 Within `and` the symbol `@` will refer to the result of your last expression. This allows us to thread it into the next expression in *any* place that we desire.
 ```lisp
